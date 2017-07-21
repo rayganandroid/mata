@@ -4123,7 +4123,7 @@ end
 if matches[1] == "nerkh" or matches[1] == "Nerkh" or matches[1] == "نرخ" then
 text = [[
 `💵 نرخ فروش گروه با ربات`
-*🔖мαтαdor тɢ 💤*
+*Tele Sky*
 
 ✳️_برای گروه های زیر 1000 نفر _
 `➰1 ماهه  5 هزار تومان`
@@ -4152,9 +4152,9 @@ text = [[
 3⃣._ربات داعمی نداریم به علت کیفیت و کارای بالای ربات._
 *________________*
 *برای خرید به ایدی زیر مراجعه کنید :*
-🆔: :D
+🆔: @aloneTG یا @HackerTele
 *و اگر ریپورت هستید به :*
-🆔: @AliTakParBot
+🆔: @PvMS_robot یا @AliTakParBot
 ]]
 return text
 end
