@@ -10,7 +10,7 @@
 # Let's install the bot.
 cd $HOME
 git clone https://github.com/rayganandroid/mata.git
-cd rayganandroid
+cd mata
 chmod +x matador.sh
 chmod 777 auto.sh && sed -i -e 's/\r$//' auto.sh
 ./matador.sh install
@@ -20,7 +20,7 @@ chmod 777 auto.sh && sed -i -e 's/\r$//' auto.sh
 ### One command
 To install everything in one command, use:
 ```sh
-cd $HOME && git clone https://github.com/rayganandroid/mata.git && cd rayganandroid && chmod +x matador.sh && chmod 777 auto.sh && sed -i -e 's/\r$//' auto.sh && ./matador.sh install && ./matador.sh
+cd $HOME && git clone https://github.com/rayganandroid/mata.git && cd mata && chmod +x matador.sh && chmod 777 auto.sh && sed -i -e 's/\r$//' auto.sh && ./matador.sh install && ./matador.sh
 ```
 
 * * *
@@ -29,7 +29,7 @@ cd $HOME && git clone https://github.com/rayganandroid/mata.git && cd rayganandr
 
 ```
 killall screen
-cd rayganandroid && screen ./matador.sh
+cd mata && screen ./matador.sh
 ```
 
 * * *
@@ -38,7 +38,7 @@ cd rayganandroid && screen ./matador.sh
 ### auto launch 
 ```
 killall screen
-cd rayganandroid && screen ./auto.sh
+cd mata && screen ./auto.sh
 ```
 
 * * *
