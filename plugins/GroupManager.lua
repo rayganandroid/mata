@@ -5,17 +5,17 @@ local lang = redis:get(hash)
     -- superuser and admins only (because sudo are always has privilege)
     if not is_admin(msg) then
    if not lang then
-        return '*》γσų ąŗε ŋσŧ ɓσŧ ąđɱïŋ 🚷*\n*〰〰〰〰〰〰〰〰*\n🗯_Run this command only for Admins and deputies is_'
+        return '💮*You Are Not Bot Admin*💮'
 else
-     return '》 _شما_ #مدیر _گروه نیستید_ 🚷\n*〰〰〰〰〰〰〰〰*\n🗯اجرای این دستور فقط برای مدیران و معاونان است.'
+     return '💮_شما دسترسی ندارید!_💮'
     end
 end
     local data = load_data(_config.moderation.data)
   if data[tostring(msg.to.id)] then
 if not lang then
-   return '》 *gяøυρ łš αlяeαđч αđđeđ* ‼️\n*〰〰〰〰〰〰〰〰*\n🗯_The robot is already in the group, the robot was is no longer need to do not_'
+   return '💮**The Group Was Already Added**💮'
 else
-return '》 _ربات در_ #لیست _گروه ربات از قبل بود_ ‼️\n*〰〰〰〰〰〰〰〰*\n🗯ربات از قبل در لیست گروه های ربات بود است دیگر نیازی به این‌کار نیست.'
+return '💮_گروه از قبل در سرور موجود بود!_💮'
   end
 end
         -- create data array in moderation.json
@@ -73,9 +73,9 @@ end
       data[tostring(groups)][tostring(msg.to.id)] = msg.to.id
       save_data(_config.moderation.data, data)
     if not lang then
-  return '》 *gяøυρ  ħαš вeeи αđđeđ* 💠\n*〰〰〰〰〰〰〰〰*\n🗯_Group now to list the groups the robot was added_'
+  return '💮*Group Has Been Added*💮'
 else
-  return '》 _گروه به_ #لیست _گروه ربات اضافه شده_ 💠\n*〰〰〰〰〰〰〰〰*\n🗯گروه هم اکنون به لیست گروه ربات اضافه شد.'
+  return '💮_گروه به سرور اضافه شد!_💮'
 end
 end
 
@@ -85,18 +85,18 @@ local lang = redis:get(hash)
     -- superuser and admins only (because sudo are always has privilege)
       if not is_admin(msg) then
      if not lang then
-        return '*》γσų ąŗε ŋσŧ ɓσŧ ąđɱïŋ 🚷*\n*〰〰〰〰〰〰〰〰*\n🗯_Run this command only for Admins and deputies is_'
+        return '💮*You Are Not Bot Admin*💮'
    else
-        return '》 _شما_ #مدیر _گروه نیستید_ 🚷\n*〰〰〰〰〰〰〰〰*\n🗯اجرای این دستور فقط برای مدیران و معاونان است.'
+        return '💮_شما دسترسی ندارید!_💮'
     end
    end
     local data = load_data(_config.moderation.data)
     local receiver = msg.to.id
   if not data[tostring(msg.to.id)] then
   if not lang then
-    return '》 *gяøυρ łš иøт αđđeđ* 🚫\n*〰〰〰〰〰〰〰〰*\n🗯_Group from the first to the group list, the robot was not added_'
+    return '💮*Group Is Not Added*💮'
 else
-    return '》 _گروه در_ #لیست _گروه ربات  نیست_ 🚫\n*〰〰〰〰〰〰〰〰*\n🗯گروه از اول به لیست گروه ربات اضافه نشده بود.'
+    return '💮_گروه در سرور موجود نیست!_💮'
    end
   end
 
@@ -109,9 +109,9 @@ else
       end data[tostring(groups)][tostring(msg.to.id)] = nil
       save_data(_config.moderation.data, data)
  if not lang then
-  return '》 *gяøυρ ħαš вeeи яeмøνeđ* 💠\n*〰〰〰〰〰〰〰〰*\n🗯_The group now from the list of groups, the robot was removed_'
+  return '💮*Group Has Been Removed*💮'
  else
-  return '》 _گروه از_ #لیست _گروه های ربات حدف شد_ 💠\n*〰〰〰〰〰〰〰〰*\n🗯گروه هم اکنون از لیست گروه ربات حذف شد.'
+  return '💮_گروه از سرور حذف شد!_💮'
 end
 end
 
@@ -125,15 +125,15 @@ local data = load_data(_config.moderation.data)
     end
 if data[tostring(msg.to.id)]['filterlist'][(word)] then
    if not lang then
-         return "#》_ωøяκ_ *"..word.."* _łš αlяeαđч fłlтeяeđ_ ⚠️"
+         return "💮*Word* _"..word.."_ *Is already Filtered*💮"
             else
-         return "#》_کلمه_ *"..word.."* _از قبل فیلتر بود_⚠️"
+         return "💮_کلمه_ _"..word.."_ _از قبل در لیست فیلتر بود_💮"
     end
 end
    data[tostring(msg.to.id)]['filterlist'][(word)] = true
      save_data(_config.moderation.data, data)
    if not lang then
-         return "#》_ωøяκ_ *"..word.."* _αđđ тø fłlтeяeđ ωøяđš lłšт_ ✔️"
+         return "💮*Word* _"..word.."_ *Added To Filter List*💮"
             else
          return "#》_کلمه_ *"..word.."* _به لیست کلمات فیلتر اضافه شد_✔️"
     end
