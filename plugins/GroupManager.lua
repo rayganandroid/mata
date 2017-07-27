@@ -5,17 +5,17 @@ local lang = redis:get(hash)
     -- superuser and admins only (because sudo are always has privilege)
     if not is_admin(msg) then
    if not lang then
-        return '💮*You Are Not Bot Admin*💮'
+        return '*》γσų ąŗε ŋσŧ ɓσŧ ąđɱïŋ 🚷*\n*〰〰〰〰〰〰〰〰*\n🗯_Run this command only for Admins and deputies is_'
 else
-     return '💮_شما دسترسی ندارید!_💮'
+     return '》 _شما_ #مدیر _گروه نیستید_ 🚷\n*〰〰〰〰〰〰〰〰*\n🗯اجرای این دستور فقط برای مدیران و معاونان است.'
     end
 end
     local data = load_data(_config.moderation.data)
   if data[tostring(msg.to.id)] then
 if not lang then
-   return '💮*The Group Was Already Added*💮'
+   return '》 *gяøυρ łš αlяeαđч αđđeđ* ‼️\n*〰〰〰〰〰〰〰〰*\n🗯_The robot is already in the group, the robot was is no longer need to do not_'
 else
-return '💮_گروه از قبل در سرور موجود بود!_💮'
+return '》 _ربات در_ #لیست _گروه ربات از قبل بود_ ‼️\n*〰〰〰〰〰〰〰〰*\n🗯ربات از قبل در لیست گروه های ربات بود است دیگر نیازی به این‌کار نیست.'
   end
 end
         -- create data array in moderation.json
@@ -73,9 +73,9 @@ end
       data[tostring(groups)][tostring(msg.to.id)] = msg.to.id
       save_data(_config.moderation.data, data)
     if not lang then
-  return '💮*Group Has Been Added*💮'
+  return '》 *gяøυρ  ħαš вeeи αđđeđ* 💠\n*〰〰〰〰〰〰〰〰*\n🗯_Group now to list the groups the robot was added_'
 else
-  return '💮_گروه به سرور اضافه شد!_💮'
+  return '》 _گروه به_ #لیست _گروه ربات اضافه شده_ 💠\n*〰〰〰〰〰〰〰〰*\n🗯گروه هم اکنون به لیست گروه ربات اضافه شد.'
 end
 end
 
@@ -85,18 +85,18 @@ local lang = redis:get(hash)
     -- superuser and admins only (because sudo are always has privilege)
       if not is_admin(msg) then
      if not lang then
-        return '💮*You Are Not Bot Admin*💮'
+        return '*》γσų ąŗε ŋσŧ ɓσŧ ąđɱïŋ 🚷*\n*〰〰〰〰〰〰〰〰*\n🗯_Run this command only for Admins and deputies is_'
    else
-        return '💮_شما دسترسی ندارید!_💮'
+        return '》 _شما_ #مدیر _گروه نیستید_ 🚷\n*〰〰〰〰〰〰〰〰*\n🗯اجرای این دستور فقط برای مدیران و معاونان است.'
     end
    end
     local data = load_data(_config.moderation.data)
     local receiver = msg.to.id
   if not data[tostring(msg.to.id)] then
   if not lang then
-    return '💮*Group Is Not Added*💮'
+    return '》 *gяøυρ łš иøт αđđeđ* 🚫\n*〰〰〰〰〰〰〰〰*\n🗯_Group from the first to the group list, the robot was not added_'
 else
-    return '💮_گروه در سرور موجود نیست!_💮'
+    return '》 _گروه در_ #لیست _گروه ربات  نیست_ 🚫\n*〰〰〰〰〰〰〰〰*\n🗯گروه از اول به لیست گروه ربات اضافه نشده بود.'
    end
   end
 
@@ -109,9 +109,9 @@ else
       end data[tostring(groups)][tostring(msg.to.id)] = nil
       save_data(_config.moderation.data, data)
  if not lang then
-  return '💮*Group Has Been Removed*💮'
+  return '》 *gяøυρ ħαš вeeи яeмøνeđ* 💠\n*〰〰〰〰〰〰〰〰*\n🗯_The group now from the list of groups, the robot was removed_'
  else
-  return '💮_گروه از سرور حذف شد!_💮'
+  return '》 _گروه از_ #لیست _گروه های ربات حدف شد_ 💠\n*〰〰〰〰〰〰〰〰*\n🗯گروه هم اکنون از لیست گروه ربات حذف شد.'
 end
 end
 
@@ -125,17 +125,17 @@ local data = load_data(_config.moderation.data)
     end
 if data[tostring(msg.to.id)]['filterlist'][(word)] then
    if not lang then
-         return "💮*Word* _"..word.."_ *Is already Filtered*💮"
+         return "#》_ωøяκ_ *"..word.."* _łš αlяeαđч fłlтeяeđ_ ⚠️"
             else
-         return "💮_کلمه_ _"..word.."_ _از قبل در لیست فیلتر بود_💮"
+         return "#》_کلمه_ *"..word.."* _از قبل فیلتر بود_⚠️"
     end
 end
    data[tostring(msg.to.id)]['filterlist'][(word)] = true
      save_data(_config.moderation.data, data)
    if not lang then
-         return "💮*Word* _"..word.."_ *Added To Filter List*💮"
+         return "#》_ωøяκ_ *"..word.."* _αđđ тø fłlтeяeđ ωøяđš lłšт_ ✔️"
             else
-         return "💮_کلمه_ *"..word.."* _به لیست کلمات فیلتر شده اضافه شد!_💮"
+         return "#》_کلمه_ *"..word.."* _به لیست کلمات فیلتر اضافه شد_✔️"
     end
 end
 
@@ -151,15 +151,15 @@ local lang = redis:get(hash)
       data[tostring(msg.to.id)]['filterlist'][(word)] = nil
        save_data(_config.moderation.data, data)
        if not lang then
-         return "💮*Word* _"..word.."_ *Removed To Filter List!*💮"
+         return "#》_ωøяκ_ *"..word.."* _яeмøνeđ fяαм fłlтeяeđ work lłšт_ ❌"
        elseif lang then
-         return "💮_کلمه_ *"..word.."* _از لیست کلمات فیلتر شده پاک شد!_💮"
+         return "#》_کلمه_ *"..word.."* _از لیست کلمات فیلتر حذف شد_❌"
      end
       else
        if not lang then
-         return "💮*Word* _"..word.."_ *Is Not Filtered!*💮"
+         return "#》_ωøяκ_ *"..word.."* _łš иøт fłlтeяeđ_ ❗️"
        elseif lang then
-         return "💮_کلمه_ *"..word.."* _از قبل در لیست فیلتر موجود نبود!_💮"
+         return "#》_کلمه_ *"..word.."* _از قبل فیلتر نبود_❗️"
       end
    end
 end
@@ -171,23 +171,23 @@ local lang = redis:get(hash)
     local i = 1
   if not data[tostring(msg.chat_id_)] then
   if not lang then
-    return "💮*Group Is Not Added!*💮"
+    return "》 *gяøυρ łš иøт αđđeđ* 🚫\n*〰〰〰〰〰〰〰〰*\n🗯_Group from the first to the group list, the robot was not added_"
  else
-    return "💮_گروه در لیست گروه های موجود در سرور نیست!_💮"
+    return "》 _گروه در_ #لیست _گروه ربات  نیست_ 🚫\n*〰〰〰〰〰〰〰〰*\n🗯گروه از اول به لیست گروه ربات اضافه نشده بود."
   end
  end
   -- determine if table is empty
   if next(data[tostring(msg.to.id)]['mods']) == nil then --fix way
   if not lang then
-    return "💮*No Manager In This Group*💮"
+    return "》 _иø_ *мαđeяαтøя* _łи тħłš gяøυρ_ ‼️\n*〰〰〰〰〰〰〰〰*\n🗯_In this category currently has no Manager selected_\nɳαɱҽ : "..msg.from.first_name.."\nυʂҽɾɳαɱҽ : [@"..(check_markdown(msg.from.username) or 'No υʂҽɾɳαɱҽ').."]"
 else
-   return "💮_برای این گروه معاونی تنظیم نشده!_💮"
+   return "》 _در گروه_ #معاونی _وجود نداره_ ‼️\n*〰〰〰〰〰〰〰〰*\n🗯در این‌ گروه در حال حاظر هیچ معاونی انتخاب نشده است.\n نام :"..msg.from.first_name.." \n یوزنیم : [@"..(check_markdown(msg.from.username) or 'یوز نیم موجود نیست').."]"
   end
 end
 if not lang then
-   message = '👔*Manager List :*\n'
+   message = '⚜*lłšт øf мøđeяαтøя 👥 :*\n'
 else
-   message = '👔_لیست معاون های گروه :_\n'
+   message = '⚜لیست معاون های گروه👥 :*\n'
 end
   for k,v in pairs(data[tostring(msg.to.id)]['mods'])
 do
@@ -204,23 +204,23 @@ local lang = redis:get(hash)
     local i = 1
   if not data[tostring(msg.to.id)] then
 if not lang then
-    return "💮*No Manager In This Group*💮"
+    return "》 *gяøυρ łš иøт αđđeđ* 🚫\n*〰〰〰〰〰〰〰〰*\n🗯_Group from the first to the group list, the robot was not added_"
 else
-return "💮_برای این گروه معاونی تنظیم نشده!_💮"
+return "》 _در گروه_ #معاونی _وجود نداره_ ‼️\n*〰〰〰〰〰〰〰〰*\n🗯در این‌ گروه در حال حاظر هیچ معاونی انتخاب نشده است.\n نام :"..msg.from.first_name.." \n یوزنیم : [@"..(check_markdown(msg.from.username) or 'یوز نیم موجود نیست').."]"
   end
 end
   -- determine if table is empty
   if next(data[tostring(msg.to.id)]['owners']) == nil then --fix way
  if not lang then
-    return "💮*No Owner In This Group!*💮"
+    return "#》_Nσ_ *σωηєя* _ιη тнιѕ gяσυρ_❕👤"
 else
-    return "💮_هیچ مالکی برای این گروه انتخاب نشده!_💮"
+    return "#》هیچ مدیری برای ربات در این گروه انتخاب نشده است❕👤"
   end
 end
 if not lang then
-   message = '👔_لیست معاون های گروه :_\n'
+   message = '⚜*lłšт øf мøđeяαтøя 👥 :*\n'
 else
-   message = '👔_لیست معاون های گروه :_\n'
+   message = '⚜لیست معاون های گروه👥 :*\n'
 end
   for k,v in pairs(data[tostring(msg.to.id)]['owners']) do
     message = message ..i.. '- '..v..' [' ..k.. '] \n'
@@ -238,9 +238,9 @@ if not tonumber(data.sender_user_id_) then return false end
     if data.sender_user_id_ then
   if not administration[tostring(data.chat_id_)] then
   if not lang then
-    return tdcli.sendMessage(data.chat_id_, "", 0, "💮*Group Is Not Added*💮 "md")
+    return tdcli.sendMessage(data.chat_id_, "", 0, "》 *gяøυρ łš иøт αđđeđ* 🚫\n*〰〰〰〰〰〰〰〰*\n🗯_Group from the first to the group list, the robot was not added_", 0, "md")
 else
-    return tdcli.sendMessage(data.chat_id_, "", 0, "💮_گروه در لیست گروه های موجود در سرور نیست!_💮 "md")
+    return tdcli.sendMessage(data.chat_id_, "", 0, "》 _گروه در_ #لیست _گروه ربات  نیست_ 🚫\n*〰〰〰〰〰〰〰〰*\n🗯گروه از اول به لیست گروه ربات اضافه نشده بود.", 0, "md")
      end
   end
 if cmd == "setowner" then
@@ -255,17 +255,17 @@ user_name = check_markdown(data.first_name_)
 end
 if administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] then
     if not lang then
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🔱 *User:* "..user_name.." *"..data.id.."* *Is Already Owner!*🔱", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "》 👤_υšeя _ : "..user_name.." *"..data.id.."* _łš αlяeαđч gяøυρ øωиeя_⚠️", 0, "md")
    else
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🔱 _کاربر_ "..user_name.." *"..data.id_.."* _از قبل مالک گروه بود_ 🔱, 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "》👤کاربر"..user_name.." *"..data.id_.."* *از قبل مدیر بود*⚠️", 0, "md")
       end
    end
 administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] = user_name
     save_data(_config.moderation.data, administration)
    if not lang then
-  return tdcli.sendMessage(arg.chat_id, "", 0, "🔱 *User*  "..user_name.." *"..data.id_.."* In Now The Group Owner!🔱", 0, "md")
+  return tdcli.sendMessage(arg.chat_id, "", 0, "》👤_υšeя_ "..user_name.." *"..data.id_.."* _łи иøω тħe_ *gяøυρ øωиeя* ✔️", 0, "md")
    else
-  return tdcli.sendMessage(arg.chat_id, "", 0, "🔱_کاربر_ "..user_name.." *"..data.id_.."*_مدیر گروه شد!_🔱, 0, "md")
+  return tdcli.sendMessage(arg.chat_id, "", 0, "》👤کاربر "..user_name.." *"..data.id_.."* *مدیر گروه شد*✔️", 0, "md")
    end
 end
 tdcli_function ({
@@ -285,17 +285,17 @@ user_name = check_markdown(data.first_name_)
 end
 if administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] then
    if not lang then
-    return tdcli.sendMessage(arg.chat_id, "", 0, "⚜️*User* "..user_name.." *"..data.id_.."* *Is Already Manager!⚜️", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "》👤_υšeя_ "..user_name.." *"..data.id_.."* _łš αlяeαđч_ *мøđeяαтøя*⚠️", 0, "md")
 else
-    return tdcli.sendMessage(arg.chat_id, "", 0, "⚜️ _کاربر "..user_name.." *"..data.id_.."* _از قبل معاون گروه بود!_⚜️", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "》👤کاربر "..user_name.." *"..data.id_.."* *از قبل معاون گروه بود*⚠️", 0, "md")
       end
    end
 administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] = user_name
     save_data(_config.moderation.data, administration)
    if not lang then
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🔱*User* "..user_name.." *"..data.id_.."* *In Now The Group Manager*🔱", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "》👤_υšeя_ "..user_name.." *"..data.id_.."* _łи иøω тħe_ *gяøυρ ρяøмøтe*✔️", 0, "md")
    else
-    return tdcli.sendMessage(arg.chat_id, "", 0, "🔱 _کاربر_ "..user_name.." *"..data.id_.."* _معاون گروه شد!_🔱", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "》👤کاربر "..user_name.." *"..data.id_.."* *معاون گروه شد*✔️", 0, "md")
    end
 end
 tdcli_function ({
@@ -315,17 +315,17 @@ user_name = check_markdown(data.first_name_)
 end
 if not administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] then
    if not lang then
-return tdcli.sendMessage(arg.chat_id, "", 0, "⚜️*User* "..user_name.." *"..data.id_.."* * In Not A Group Owner!⚜️", 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, "》👤_υšeя_ "..user_name.." *"..data.id_.."* _łи иøт α_ *gяøυρ øωиeя*❌", 0, "md")
    else
-return tdcli.sendMessage(arg.chat_id, "", 0, "⚜️ _کاربر_ "..user_name.." *"..data.id_.."* _از قبل مالک گروه نبود!_⚜️", 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, "》👤کاربر "..user_name.." *"..data.id_.."* *از قبل مدیر نبود*❌", 0, "md")
       end
    end
 administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] = nil
     save_data(_config.moderation.data, administration)
    if not lang then
-return tdcli.sendMessage(arg.chat_id, "", 0, "⚜️ *User* "..user_name.." *"..data.id_.."* *Is Demote Of Group Owner!*⚜️", 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, "》👤_υšeя_ "..user_name.." *"..data.id_.."* _łš đeмøтe øf_ *gяøυρ øωиeя*✔️", 0, "md")
     else
-return tdcli.sendMessage(arg.chat_id, "", 0, "⚜️ _کاربر_ "..user_name.." *"..data.id_.."* _از مقام مالک گروه برکنار شد!_⚜️", 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, "》👤کاربر "..user_name.." *"..data.id_.."* *از مقام مدیر برکنار شد*✔️", 0, "md")
    end
 end
 tdcli_function ({
@@ -343,17 +343,17 @@ user_name = check_markdown(data.first_name_)
 end
 if not administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] then
     if not lang then
-    return tdcli.sendMessage(arg.chat_id, "", 0, "⚜️ *User* "..user_name.." *"..data.id_.."* *In Not A Manager!⚜️", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "》👤_υšeя_ "..user_name.." *"..data.id_.."* _łи иøт α_ *мøđeяαтøя*❗️", 0, "md")
     else
-    return tdcli.sendMessage(arg.chat_id, "", 0, "⚜️_کاربر_ "..user_name.." *"..data.id_.."* _از قبل معاون نبود!_⚜️ ", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "》👤کاربر "..user_name.." *"..data.id_.."* *از قبل معاون نبود*❗️", 0, "md")
    end
   end
 administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] = nil
     save_data(_config.moderation.data, administration)
    if not lang then
-    return tdcli.sendMessage(arg.chat_id, "", 0, "⚜️ *User* "..user_name.." *"..data.id_.."* *Has Been Demoted*⚜️ ", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "》👤_υšeя_ "..user_name.." *"..data.id_.."* _ħαš вeeи_ *đeмøтeđ*✔️", 0, "md")
    else
-    return tdcli.sendMessage(arg.chat_id, "", 0, "⚜️ _کاربر_ "..user_name.." *"..data.id_.."* _از مقام معاون گروه برکنار شد_⚜️", 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "》👤کاربر "..user_name.." *"..data.id_.."* *از مقام معاون گروه برکنار شد*✔️", 0, "md")
    end
 end
 tdcli_function ({
@@ -386,9 +386,9 @@ local cmd = arg.cmd
     local administration = load_data(_config.moderation.data)
   if not administration[tostring(arg.chat_id)] then
   if not lang then
-    return tdcli.sendMessage(data.chat_id_, "", 0, "💮*Group Is Not Added*💮 "md")
+    return tdcli.sendMessage(data.chat_id_, "", 0, "》 *gяøυρ łš иøт αđđeđ* 🚫\n*〰〰〰〰〰〰〰〰*\n🗯_Group from the first to the group list, the robot was not added_", 0, "md")
 else
-    return tdcli.sendMessage(data.chat_id_, "", 0, "💮_گروه در سرور موجود نیست!_💮", 0, "md")
+    return tdcli.sendMessage(data.chat_id_, "", 0, "》 _گروه در_ #لیست _گروه ربات  نیست_ 🚫\n*〰〰〰〰〰〰〰〰*\n🗯گروه از اول به لیست گروه ربات اضافه نشده بود.", 0, "md")
      end
   end
 if not arg.username then return false end
